@@ -8,8 +8,8 @@ function ExpandableMenu({title, children}) {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return (
-    <div className='expandable-menu-container' onClick={() => setIsExpanded(!isExpanded)}>
-      <div className='head'>
+    <div className='expandable-menu-container'>
+      <div className='head' onClick={() => setIsExpanded(!isExpanded)}>
         <div className='title'>{title}</div>
         <div style={{paddingLeft: '.5em'}}>
           {isExpanded ? <ChevronUp style={{verticalAlign: 'middle'}} size={38} /> : <ChevronDown style={{verticalAlign: 'middle'}} size={38} />}
@@ -27,16 +27,16 @@ function ExpandableMenu({title, children}) {
           color: ${theme.darkText};
         }
 
-        .expandable-menu-container:hover {
-          cursor: pointer;
-        }
-
         .head {
           display: flex;
           justify-content: space-between;
           display: flex;
           align-items: center;
           min-height: 2em;
+        }
+
+        .head:hover {
+          cursor: pointer;
         }
 
         .title {
